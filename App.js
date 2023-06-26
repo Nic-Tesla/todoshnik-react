@@ -12,21 +12,13 @@ function App({ Component, pageProps }) {
       completed: true,
     },
     {
-      text: 'Разработать ToDo на ReactJS',
+      text: ' ToDo на ReactJS',
       completed: false,
     },
   ]);
 
   const onToggleCompleted = (index) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task, curIdx) =>
-        index === curIdx
-          ? {
-              ...task,
-              completed: !task.completed,
-            }
-          : task,
-      ),
+    setTasks((prevTasks) => prevTasks.map((task, curIdx) => index === curIdx ? { ...task, completed: !task.completed, } : task,  ),
     );
   };
 
@@ -37,10 +29,7 @@ function App({ Component, pageProps }) {
   const onAddTask = (text) => {
     setTasks((prevTasks) => [
       ...prevTasks,
-      {
-        text,
-        completed: false,
-      },
+      { text, completed: false },
     ]);
   };
 
@@ -53,7 +42,6 @@ function App({ Component, pageProps }) {
       <div className="todo__header">
         <h4>NFT mint!</h4>
       </div>
-
       <Web3ReactProvider getLibrary={getLibrary}>
         <WalletConnector {...pageProps} />
       </Web3ReactProvider>
